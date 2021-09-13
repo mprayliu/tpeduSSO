@@ -38,7 +38,7 @@ services:
     restart: always
     
   laravel:
-    image: test:1.0
+    image: leejoneshane/tpedusso
     container_name: laravel
     hostname: ldap.tp.edu.tw
     volumes:
