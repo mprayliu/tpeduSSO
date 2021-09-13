@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    您已經登入系統！
+                    您已經登入系統！MPINFO
                 </div>
             </div>
         </div>
