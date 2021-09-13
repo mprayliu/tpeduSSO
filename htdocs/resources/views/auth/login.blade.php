@@ -18,7 +18,7 @@
 		        @if (session('error') || session('success'))
 		            <p style="color:red">{{ session('error') }}{{ session('success') }}</p>
 		        @else
-                    <p>請輸入您的使用者名稱與密碼：</p>
+                    <p>請輸入您的單一身分驗證帳號與密碼：</p>
 		        @endif
             </div>
         </div>
