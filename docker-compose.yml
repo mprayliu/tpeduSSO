@@ -41,8 +41,8 @@ services:
     image: leejoneshane/tpedusso
     container_name: laravel
     hostname: ldap.tp.edu.tw
-    volumes:
-      - ./htdocs:/var/www/localhost/htdocs
+#    volumes:
+ #     - ./htdocs:/var/www/localhost/htdocs
     environment:
       APP_DEBUG: 'true'
       APP_KEY: 'base64:fx/bpfXs+pQ3j7eeZP5gkqWxBtbhUpaqELdpQeeP/N8='
