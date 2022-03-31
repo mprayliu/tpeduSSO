@@ -24,6 +24,8 @@ services:
     environment:
       MYSQL_DATABASE: laravel
       MYSQL_ROOT_PASSWORD: dbpassword
+    ports:
+      - "3306:3306"
     restart: always
 
   sqladmin:
