@@ -4,6 +4,8 @@ services:
     image: leejoneshane/tpedusso:openldap
     container_name: openldap
     hostname: ldap
+    ports:
+      - "389:389"
     restart: always
     
   ldapadmin:
@@ -36,7 +38,7 @@ services:
     image: redis
     container_name: redis
     ports:
-      - "8080:80"
+      - "6379:6379"
     restart: always
     
   laravel:
