@@ -1,0 +1,85 @@
+version: '3.2'
+services:
+  openldap:
+    image: 192.168.30.35/namespace-01/tp/openldap
+    container_name: openldap
+    hostname: ldap
+    ports:
+      - "389:389"
+    restart: always
+    
+  ldapadmin:
+    image: namespace-01/tp/phpldapadmin
+    container_name: ldapadmin
+    restart: always
+    ports:
+      - "8080:80"
+    links:
+      - openldap:openldap
+    
+  mysql:
+    image: 192.168.30.35/namespace-01/tp/mysql
+    container_name: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_ROOT_PASSWORD: dbpassword
+    ports:
+      - "3306:3306"
+    restart: always
+
+  sqladmin:
+    image: 192.168.30.35/namespace-01/tp/phpmyadmin
+    container_name: sqladmin
+    ports:
+      - "8088:80"
+    links:
+      - mysql:db
+
+  redis:
+    image: 192.168.30.35/namespace-01/tp/redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+    deploy:
+      replicas: 2
+    restart: always
+    
+  laravel:
+    image: 192.168.30.35/namespace-01/tp/tpedusso
+    container_name: laravel
+   # hostname: ldap.tp.edu.tw
+#    volumes:
+ #     - ./htdocs:/var/www/localhost/htdocs
+    environment:
+      APP_DEBUG: 'true'
+      APP_KEY: 'base64:fx/bpfXs+pQ3j7eeZP5gkqWxBtbhUpaqELdpQeeP/N8='
+      APP_URL: 'http://127.0.0.1'
+      SESSION_SECURE_COOKIE: 'false'
+      CACHE_DRIVER: redis
+      SESSION_DRIVER: redis
+      SESSION_CONNECTION: session
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_DATABASE: laravel
+      DB_USERNAME: root
+      DB_PASSWORD: dbpassword
+      LDAP_HOST: ldap://openldap
+      LDAP_ROOTDN: cn=admin,dc=tp,dc=edu,dc=tw
+      LDAP_ROOTPWD: test
+      MAIL_DRIVER: smtp
+      MAIL_HOST: smtp.gmail.com
+      MAIL_PORT: 587
+      MAIL_USERNAME: your@gmail.com
+      MAIL_PASSWORD: password
+      MAIL_ENCRYPTION: tls
+      SAML_MAIL: ms.tp.edu.tw
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - mysql:mysql
+      - redis:redis
+    restart: always
