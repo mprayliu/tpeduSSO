@@ -32,7 +32,7 @@ services:
     image: phpmyadmin/phpmyadmin
     container_name: sqladmin
     environment:
-     - PMA_HOST = mysql
+      - PMA_HOST = mysql
     ports:
       - "8088:80"
     links:
