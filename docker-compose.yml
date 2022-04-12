@@ -34,7 +34,7 @@ services:
     ports:
       - "8088:80"
     links:
-      - mysql:db
+      - mysql:mysql
 
   redis:
     image: redis
