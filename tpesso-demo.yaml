@@ -1,0 +1,773 @@
+apiVersion: v1
+items:
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      kompose.cmd: /kompose convert -f - --stdout
+      kompose.version: 1.22.0 (955b78124)
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"kompose.cmd":"/kompose convert -f - --stdout","kompose.version":"1.22.0 (955b78124)"},"creationTimestamp":null,"labels":{"io.kompose.service":"laravel","io.portainer.kubernetes.application.kind":"git","io.portainer.kubernetes.application.name":"tpesso-demo","io.portainer.kubernetes.application.owner":"admin","io.portainer.kubernetes.application.stack":"tpesso-demo","io.portainer.kubernetes.application.stackid":"6"},"name":"laravel","namespace":"demo"},"spec":{"replicas":1,"selector":{"matchLabels":{"io.kompose.service":"laravel"}},"strategy":{},"template":{"metadata":{"annotations":{"kompose.cmd":"/kompose convert -f - --stdout","kompose.version":"1.22.0 (955b78124)"},"creationTimestamp":null,"labels":{"io.kompose.service":"laravel"}},"spec":{"containers":[{"env":[{"name":"APP_DEBUG","value":"true"},{"name":"APP_KEY","value":"base64:fx/bpfXs+pQ3j7eeZP5gkqWxBtbhUpaqELdpQeeP/N8="},{"name":"APP_URL","value":"http://127.0.0.1"},{"name":"CACHE_DRIVER","value":"redis"},{"name":"DB_DATABASE","value":"laravel"},{"name":"DB_HOST","value":"mysql"},{"name":"DB_PASSWORD","value":"dbpassword"},{"name":"DB_PORT","value":"3306"},{"name":"DB_USERNAME","value":"root"},{"name":"LDAP_HOST","value":"ldap://openldap"},{"name":"LDAP_ROOTDN","value":"cn=admin,dc=tp,dc=edu,dc=tw"},{"name":"LDAP_ROOTPWD","value":"test"},{"name":"MAIL_DRIVER","value":"smtp"},{"name":"MAIL_ENCRYPTION","value":"tls"},{"name":"MAIL_HOST","value":"smtp.gmail.com"},{"name":"MAIL_PASSWORD","value":"password"},{"name":"MAIL_PORT","value":"587"},{"name":"MAIL_USERNAME","value":"your@gmail.com"},{"name":"REDIS_HOST","value":"redis"},{"name":"REDIS_PORT","value":"6379"},{"name":"SAML_MAIL","value":"ms.tp.edu.tw"},{"name":"SESSION_CONNECTION","value":"session"},{"name":"SESSION_DRIVER","value":"redis"},{"name":"SESSION_SECURE_COOKIE","value":"false"}],"image":"leejoneshane/tpedusso","name":"laravel","ports":[{"containerPort":80},{"containerPort":443}],"resources":{}}],"restartPolicy":"Always"}}},"status":{}}
+    creationTimestamp: "2022-04-12T03:21:56Z"
+    generation: 1
+    labels:
+      io.kompose.service: laravel
+      io.portainer.kubernetes.application.kind: git
+      io.portainer.kubernetes.application.name: tpesso-demo
+      io.portainer.kubernetes.application.owner: admin
+      io.portainer.kubernetes.application.stack: tpesso-demo
+      io.portainer.kubernetes.application.stackid: "6"
+    name: laravel
+    namespace: demo
+    resourceVersion: "1428181"
+    uid: 8c18a15e-9f49-4ee3-8fc2-ab065d51785f
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        io.kompose.service: laravel
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          kompose.cmd: /kompose convert -f - --stdout
+          kompose.version: 1.22.0 (955b78124)
+        creationTimestamp: null
+        labels:
+          io.kompose.service: laravel
+      spec:
+        containers:
+        - env:
+          - name: APP_DEBUG
+            value: "true"
+          - name: APP_KEY
+            value: base64:fx/bpfXs+pQ3j7eeZP5gkqWxBtbhUpaqELdpQeeP/N8=
+          - name: APP_URL
+            value: http://127.0.0.1
+          - name: CACHE_DRIVER
+            value: redis
+          - name: DB_DATABASE
+            value: laravel
+          - name: DB_HOST
+            value: mysql
+          - name: DB_PASSWORD
+            value: dbpassword
+          - name: DB_PORT
+            value: "3306"
+          - name: DB_USERNAME
+            value: root
+          - name: LDAP_HOST
+            value: ldap://openldap
+          - name: LDAP_ROOTDN
+            value: cn=admin,dc=tp,dc=edu,dc=tw
+          - name: LDAP_ROOTPWD
+            value: test
+          - name: MAIL_DRIVER
+            value: smtp
+          - name: MAIL_ENCRYPTION
+            value: tls
+          - name: MAIL_HOST
+            value: smtp.gmail.com
+          - name: MAIL_PASSWORD
+            value: password
+          - name: MAIL_PORT
+            value: "587"
+          - name: MAIL_USERNAME
+            value: your@gmail.com
+          - name: REDIS_HOST
+            value: redis
+          - name: REDIS_PORT
+            value: "6379"
+          - name: SAML_MAIL
+            value: ms.tp.edu.tw
+          - name: SESSION_CONNECTION
+            value: session
+          - name: SESSION_DRIVER
+            value: redis
+          - name: SESSION_SECURE_COOKIE
+            value: "false"
+          image: leejoneshane/tpedusso
+          imagePullPolicy: Always
+          name: laravel
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          - containerPort: 443
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2022-04-12T03:23:18Z"
+      lastUpdateTime: "2022-04-12T03:23:18Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2022-04-12T03:21:56Z"
+      lastUpdateTime: "2022-04-12T03:23:18Z"
+      message: ReplicaSet "laravel-686f67589f" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      kompose.cmd: /kompose convert -f - --stdout
+      kompose.version: 1.22.0 (955b78124)
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"kompose.cmd":"/kompose convert -f - --stdout","kompose.version":"1.22.0 (955b78124)"},"creationTimestamp":null,"labels":{"io.kompose.service":"ldapadmin","io.portainer.kubernetes.application.kind":"git","io.portainer.kubernetes.application.name":"tpesso-demo","io.portainer.kubernetes.application.owner":"admin","io.portainer.kubernetes.application.stack":"tpesso-demo","io.portainer.kubernetes.application.stackid":"6"},"name":"ldapadmin","namespace":"demo"},"spec":{"replicas":1,"selector":{"matchLabels":{"io.kompose.service":"ldapadmin"}},"strategy":{},"template":{"metadata":{"annotations":{"kompose.cmd":"/kompose convert -f - --stdout","kompose.version":"1.22.0 (955b78124)"},"creationTimestamp":null,"labels":{"io.kompose.service":"ldapadmin"}},"spec":{"containers":[{"image":"leejoneshane/tpedusso:phpldapadmin","name":"ldapadmin","ports":[{"containerPort":80}],"resources":{}}],"restartPolicy":"Always"}}},"status":{}}
+    creationTimestamp: "2022-04-12T03:21:56Z"
+    generation: 1
+    labels:
+      io.kompose.service: ldapadmin
+      io.portainer.kubernetes.application.kind: git
+      io.portainer.kubernetes.application.name: tpesso-demo
+      io.portainer.kubernetes.application.owner: admin
+      io.portainer.kubernetes.application.stack: tpesso-demo
+      io.portainer.kubernetes.application.stackid: "6"
+    name: ldapadmin
+    namespace: demo
+    resourceVersion: "1428115"
+    uid: 28393b03-e2e7-4d57-ad29-1ad9ae569cd9
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        io.kompose.service: ldapadmin
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          kompose.cmd: /kompose convert -f - --stdout
+          kompose.version: 1.22.0 (955b78124)
+        creationTimestamp: null
+        labels:
+          io.kompose.service: ldapadmin
+      spec:
+        containers:
+        - image: leejoneshane/tpedusso:phpldapadmin
+          imagePullPolicy: IfNotPresent
+          name: ldapadmin
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2022-04-12T03:23:04Z"
+      lastUpdateTime: "2022-04-12T03:23:04Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2022-04-12T03:21:56Z"
+      lastUpdateTime: "2022-04-12T03:23:04Z"
+      message: ReplicaSet "ldapadmin-7b7c6779f" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      kompose.cmd: /kompose convert -f - --stdout
+      kompose.version: 1.22.0 (955b78124)
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"kompose.cmd":"/kompose convert -f - --stdout","kompose.version":"1.22.0 (955b78124)"},"creationTimestamp":null,"labels":{"io.kompose.service":"mysql","io.portainer.kubernetes.application.kind":"git","io.portainer.kubernetes.application.name":"tpesso-demo","io.portainer.kubernetes.application.owner":"admin","io.portainer.kubernetes.application.stack":"tpesso-demo","io.portainer.kubernetes.application.stackid":"6"},"name":"mysql","namespace":"demo"},"spec":{"replicas":1,"selector":{"matchLabels":{"io.kompose.service":"mysql"}},"strategy":{},"template":{"metadata":{"annotations":{"kompose.cmd":"/kompose convert -f - --stdout","kompose.version":"1.22.0 (955b78124)"},"creationTimestamp":null,"labels":{"io.kompose.service":"mysql"}},"spec":{"containers":[{"args":["--default-authentication-plugin=mysql_native_password"],"env":[{"name":"MYSQL_DATABASE","value":"laravel"},{"name":"MYSQL_ROOT_PASSWORD","value":"dbpassword"}],"image":"mysql","name":"mysql","ports":[{"containerPort":3306}],"resources":{}}],"restartPolicy":"Always"}}},"status":{}}
+    creationTimestamp: "2022-04-12T03:21:56Z"
+    generation: 1
+    labels:
+      io.kompose.service: mysql
+      io.portainer.kubernetes.application.kind: git
+      io.portainer.kubernetes.application.name: tpesso-demo
+      io.portainer.kubernetes.application.owner: admin
+      io.portainer.kubernetes.application.stack: tpesso-demo
+      io.portainer.kubernetes.application.stackid: "6"
+    name: mysql
+    namespace: demo
+    resourceVersion: "1428186"
+    uid: 076aae8e-172c-4459-ac02-bbb872f67858
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        io.kompose.service: mysql
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          kompose.cmd: /kompose convert -f - --stdout
+          kompose.version: 1.22.0 (955b78124)
+        creationTimestamp: null
+        labels:
+          io.kompose.service: mysql
+      spec:
+        containers:
+        - args:
+          - --default-authentication-plugin=mysql_native_password
+          env:
+          - name: MYSQL_DATABASE
+            value: laravel
+          - name: MYSQL_ROOT_PASSWORD
+            value: dbpassword
+          image: mysql
+          imagePullPolicy: Always
+          name: mysql
+          ports:
+          - containerPort: 3306
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2022-04-12T03:23:18Z"
+      lastUpdateTime: "2022-04-12T03:23:18Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2022-04-12T03:21:56Z"
+      lastUpdateTime: "2022-04-12T03:23:18Z"
+      message: ReplicaSet "mysql-689455cd8" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      kompose.cmd: /kompose convert -f - --stdout
+      kompose.version: 1.22.0 (955b78124)
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"kompose.cmd":"/kompose convert -f - --stdout","kompose.version":"1.22.0 (955b78124)"},"creationTimestamp":null,"labels":{"io.kompose.service":"openldap","io.portainer.kubernetes.application.kind":"git","io.portainer.kubernetes.application.name":"tpesso-demo","io.portainer.kubernetes.application.owner":"admin","io.portainer.kubernetes.application.stack":"tpesso-demo","io.portainer.kubernetes.application.stackid":"6"},"name":"openldap","namespace":"demo"},"spec":{"replicas":1,"selector":{"matchLabels":{"io.kompose.service":"openldap"}},"strategy":{},"template":{"metadata":{"annotations":{"kompose.cmd":"/kompose convert -f - --stdout","kompose.version":"1.22.0 (955b78124)"},"creationTimestamp":null,"labels":{"io.kompose.service":"openldap"}},"spec":{"containers":[{"image":"leejoneshane/tpedusso:openldap","name":"openldap","ports":[{"containerPort":389}],"resources":{}}],"hostname":"ldap","restartPolicy":"Always"}}},"status":{}}
+    creationTimestamp: "2022-04-12T03:21:56Z"
+    generation: 1
+    labels:
+      io.kompose.service: openldap
+      io.portainer.kubernetes.application.kind: git
+      io.portainer.kubernetes.application.name: tpesso-demo
+      io.portainer.kubernetes.application.owner: admin
+      io.portainer.kubernetes.application.stack: tpesso-demo
+      io.portainer.kubernetes.application.stackid: "6"
+    name: openldap
+    namespace: demo
+    resourceVersion: "1427911"
+    uid: 294d6370-3400-4447-8691-735dcab4003b
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        io.kompose.service: openldap
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          kompose.cmd: /kompose convert -f - --stdout
+          kompose.version: 1.22.0 (955b78124)
+        creationTimestamp: null
+        labels:
+          io.kompose.service: openldap
+      spec:
+        containers:
+        - image: leejoneshane/tpedusso:openldap
+          imagePullPolicy: IfNotPresent
+          name: openldap
+          ports:
+          - containerPort: 389
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        hostname: ldap
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2022-04-12T03:21:58Z"
+      lastUpdateTime: "2022-04-12T03:21:58Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2022-04-12T03:21:56Z"
+      lastUpdateTime: "2022-04-12T03:21:58Z"
+      message: ReplicaSet "openldap-5c4fd9ff7" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      kompose.cmd: /kompose convert -f - --stdout
+      kompose.version: 1.22.0 (955b78124)
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"kompose.cmd":"/kompose convert -f - --stdout","kompose.version":"1.22.0 (955b78124)"},"creationTimestamp":null,"labels":{"io.kompose.service":"redis","io.portainer.kubernetes.application.kind":"git","io.portainer.kubernetes.application.name":"tpesso-demo","io.portainer.kubernetes.application.owner":"admin","io.portainer.kubernetes.application.stack":"tpesso-demo","io.portainer.kubernetes.application.stackid":"6"},"name":"redis","namespace":"demo"},"spec":{"replicas":2,"selector":{"matchLabels":{"io.kompose.service":"redis"}},"strategy":{},"template":{"metadata":{"annotations":{"kompose.cmd":"/kompose convert -f - --stdout","kompose.version":"1.22.0 (955b78124)"},"creationTimestamp":null,"labels":{"io.kompose.service":"redis"}},"spec":{"containers":[{"image":"redis","name":"redis","ports":[{"containerPort":6379}],"resources":{}}],"restartPolicy":"Always"}}},"status":{}}
+    creationTimestamp: "2022-04-12T03:21:56Z"
+    generation: 1
+    labels:
+      io.kompose.service: redis
+      io.portainer.kubernetes.application.kind: git
+      io.portainer.kubernetes.application.name: tpesso-demo
+      io.portainer.kubernetes.application.owner: admin
+      io.portainer.kubernetes.application.stack: tpesso-demo
+      io.portainer.kubernetes.application.stackid: "6"
+    name: redis
+    namespace: demo
+    resourceVersion: "1428176"
+    uid: f684bf2a-3402-4ef0-824b-46a6711728f9
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 2
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        io.kompose.service: redis
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          kompose.cmd: /kompose convert -f - --stdout
+          kompose.version: 1.22.0 (955b78124)
+        creationTimestamp: null
+        labels:
+          io.kompose.service: redis
+      spec:
+        containers:
+        - image: redis
+          imagePullPolicy: Always
+          name: redis
+          ports:
+          - containerPort: 6379
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 2
+    conditions:
+    - lastTransitionTime: "2022-04-12T03:23:18Z"
+      lastUpdateTime: "2022-04-12T03:23:18Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2022-04-12T03:21:56Z"
+      lastUpdateTime: "2022-04-12T03:23:18Z"
+      message: ReplicaSet "redis-55c6d568f6" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 2
+    replicas: 2
+    updatedReplicas: 2
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      kompose.cmd: /kompose convert -f - --stdout
+      kompose.version: 1.22.0 (955b78124)
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"kompose.cmd":"/kompose convert -f - --stdout","kompose.version":"1.22.0 (955b78124)"},"creationTimestamp":null,"labels":{"io.kompose.service":"sqladmin","io.portainer.kubernetes.application.kind":"git","io.portainer.kubernetes.application.name":"tpesso-demo","io.portainer.kubernetes.application.owner":"admin","io.portainer.kubernetes.application.stack":"tpesso-demo","io.portainer.kubernetes.application.stackid":"6"},"name":"sqladmin","namespace":"demo"},"spec":{"replicas":1,"selector":{"matchLabels":{"io.kompose.service":"sqladmin"}},"strategy":{},"template":{"metadata":{"annotations":{"kompose.cmd":"/kompose convert -f - --stdout","kompose.version":"1.22.0 (955b78124)"},"creationTimestamp":null,"labels":{"io.kompose.service":"sqladmin"}},"spec":{"containers":[{"image":"phpmyadmin/phpmyadmin","name":"sqladmin","ports":[{"containerPort":80}],"resources":{}}],"restartPolicy":"Always"}}},"status":{}}
+    creationTimestamp: "2022-04-12T03:21:56Z"
+    generation: 1
+    labels:
+      io.kompose.service: sqladmin
+      io.portainer.kubernetes.application.kind: git
+      io.portainer.kubernetes.application.name: tpesso-demo
+      io.portainer.kubernetes.application.owner: admin
+      io.portainer.kubernetes.application.stack: tpesso-demo
+      io.portainer.kubernetes.application.stackid: "6"
+    name: sqladmin
+    namespace: demo
+    resourceVersion: "1428191"
+    uid: eee2ec44-ab6c-4d86-b9ff-ba3171b6a342
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        io.kompose.service: sqladmin
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          kompose.cmd: /kompose convert -f - --stdout
+          kompose.version: 1.22.0 (955b78124)
+        creationTimestamp: null
+        labels:
+          io.kompose.service: sqladmin
+      spec:
+        containers:
+        - image: phpmyadmin/phpmyadmin
+          imagePullPolicy: Always
+          name: sqladmin
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2022-04-12T03:23:18Z"
+      lastUpdateTime: "2022-04-12T03:23:18Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2022-04-12T03:21:56Z"
+      lastUpdateTime: "2022-04-12T03:23:18Z"
+      message: ReplicaSet "sqladmin-8445f67fb5" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
+---
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: /kompose convert -f - --stdout
+      kompose.version: 1.22.0 (955b78124)
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{"kompose.cmd":"/kompose convert -f - --stdout","kompose.version":"1.22.0 (955b78124)"},"creationTimestamp":null,"labels":{"io.kompose.service":"laravel","io.portainer.kubernetes.application.kind":"git","io.portainer.kubernetes.application.name":"tpesso-demo","io.portainer.kubernetes.application.owner":"admin","io.portainer.kubernetes.application.stack":"tpesso-demo","io.portainer.kubernetes.application.stackid":"6"},"name":"laravel","namespace":"demo"},"spec":{"ports":[{"name":"80","port":80,"targetPort":80},{"name":"443","port":443,"targetPort":443}],"selector":{"io.kompose.service":"laravel"}},"status":{"loadBalancer":{}}}
+    creationTimestamp: "2022-04-12T03:21:55Z"
+    finalizers:
+    - service.kubernetes.io/load-balancer-cleanup
+    labels:
+      io.kompose.service: laravel
+      io.portainer.kubernetes.application.kind: git
+      io.portainer.kubernetes.application.name: tpesso-demo
+      io.portainer.kubernetes.application.owner: admin
+      io.portainer.kubernetes.application.stack: tpesso-demo
+      io.portainer.kubernetes.application.stackid: "6"
+    name: laravel
+    namespace: demo
+    resourceVersion: "1430101"
+    uid: 016b45af-26dc-41e4-a098-385fe807d4fd
+  spec:
+    clusterIP: 195.62.68.10
+    clusterIPs:
+    - 195.62.68.10
+    externalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: "80"
+      nodePort: 32396
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    - name: "443"
+      nodePort: 31749
+      port: 443
+      protocol: TCP
+      targetPort: 443
+    selector:
+      io.kompose.service: laravel
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 192.168.30.38
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: /kompose convert -f - --stdout
+      kompose.version: 1.22.0 (955b78124)
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{"kompose.cmd":"/kompose convert -f - --stdout","kompose.version":"1.22.0 (955b78124)"},"creationTimestamp":null,"labels":{"io.kompose.service":"ldapadmin","io.portainer.kubernetes.application.kind":"git","io.portainer.kubernetes.application.name":"tpesso-demo","io.portainer.kubernetes.application.owner":"admin","io.portainer.kubernetes.application.stack":"tpesso-demo","io.portainer.kubernetes.application.stackid":"6"},"name":"ldapadmin","namespace":"demo"},"spec":{"ports":[{"name":"8080","port":8080,"targetPort":80}],"selector":{"io.kompose.service":"ldapadmin"}},"status":{"loadBalancer":{}}}
+    creationTimestamp: "2022-04-12T03:21:56Z"
+    labels:
+      io.kompose.service: ldapadmin
+      io.portainer.kubernetes.application.kind: git
+      io.portainer.kubernetes.application.name: tpesso-demo
+      io.portainer.kubernetes.application.owner: admin
+      io.portainer.kubernetes.application.stack: tpesso-demo
+      io.portainer.kubernetes.application.stackid: "6"
+    name: ldapadmin
+    namespace: demo
+    resourceVersion: "1427781"
+    uid: 43c2de0a-3e85-400c-8806-02cc2b23d605
+  spec:
+    clusterIP: 195.59.77.234
+    clusterIPs:
+    - 195.59.77.234
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: "8080"
+      port: 8080
+      protocol: TCP
+      targetPort: 80
+    selector:
+      io.kompose.service: ldapadmin
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: /kompose convert -f - --stdout
+      kompose.version: 1.22.0 (955b78124)
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{"kompose.cmd":"/kompose convert -f - --stdout","kompose.version":"1.22.0 (955b78124)"},"creationTimestamp":null,"labels":{"io.kompose.service":"mysql","io.portainer.kubernetes.application.kind":"git","io.portainer.kubernetes.application.name":"tpesso-demo","io.portainer.kubernetes.application.owner":"admin","io.portainer.kubernetes.application.stack":"tpesso-demo","io.portainer.kubernetes.application.stackid":"6"},"name":"mysql","namespace":"demo"},"spec":{"ports":[{"name":"3306","port":3306,"targetPort":3306}],"selector":{"io.kompose.service":"mysql"}},"status":{"loadBalancer":{}}}
+    creationTimestamp: "2022-04-12T03:21:56Z"
+    labels:
+      io.kompose.service: mysql
+      io.portainer.kubernetes.application.kind: git
+      io.portainer.kubernetes.application.name: tpesso-demo
+      io.portainer.kubernetes.application.owner: admin
+      io.portainer.kubernetes.application.stack: tpesso-demo
+      io.portainer.kubernetes.application.stackid: "6"
+    name: mysql
+    namespace: demo
+    resourceVersion: "1427785"
+    uid: b8fb271f-a1bb-44ad-a193-321b3fd69cbc
+  spec:
+    clusterIP: 195.60.219.143
+    clusterIPs:
+    - 195.60.219.143
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: "3306"
+      port: 3306
+      protocol: TCP
+      targetPort: 3306
+    selector:
+      io.kompose.service: mysql
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: /kompose convert -f - --stdout
+      kompose.version: 1.22.0 (955b78124)
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{"kompose.cmd":"/kompose convert -f - --stdout","kompose.version":"1.22.0 (955b78124)"},"creationTimestamp":null,"labels":{"io.kompose.service":"openldap","io.portainer.kubernetes.application.kind":"git","io.portainer.kubernetes.application.name":"tpesso-demo","io.portainer.kubernetes.application.owner":"admin","io.portainer.kubernetes.application.stack":"tpesso-demo","io.portainer.kubernetes.application.stackid":"6"},"name":"openldap","namespace":"demo"},"spec":{"ports":[{"name":"389","port":389,"targetPort":389}],"selector":{"io.kompose.service":"openldap"}},"status":{"loadBalancer":{}}}
+    creationTimestamp: "2022-04-12T03:21:56Z"
+    labels:
+      io.kompose.service: openldap
+      io.portainer.kubernetes.application.kind: git
+      io.portainer.kubernetes.application.name: tpesso-demo
+      io.portainer.kubernetes.application.owner: admin
+      io.portainer.kubernetes.application.stack: tpesso-demo
+      io.portainer.kubernetes.application.stackid: "6"
+    name: openldap
+    namespace: demo
+    resourceVersion: "1427789"
+    uid: 740608f5-e50a-4c98-9107-b8ae700aa088
+  spec:
+    clusterIP: 195.59.14.131
+    clusterIPs:
+    - 195.59.14.131
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: "389"
+      port: 389
+      protocol: TCP
+      targetPort: 389
+    selector:
+      io.kompose.service: openldap
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: /kompose convert -f - --stdout
+      kompose.version: 1.22.0 (955b78124)
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{"kompose.cmd":"/kompose convert -f - --stdout","kompose.version":"1.22.0 (955b78124)"},"creationTimestamp":null,"labels":{"io.kompose.service":"redis","io.portainer.kubernetes.application.kind":"git","io.portainer.kubernetes.application.name":"tpesso-demo","io.portainer.kubernetes.application.owner":"admin","io.portainer.kubernetes.application.stack":"tpesso-demo","io.portainer.kubernetes.application.stackid":"6"},"name":"redis","namespace":"demo"},"spec":{"ports":[{"name":"6379","port":6379,"targetPort":6379}],"selector":{"io.kompose.service":"redis"}},"status":{"loadBalancer":{}}}
+    creationTimestamp: "2022-04-12T03:21:56Z"
+    labels:
+      io.kompose.service: redis
+      io.portainer.kubernetes.application.kind: git
+      io.portainer.kubernetes.application.name: tpesso-demo
+      io.portainer.kubernetes.application.owner: admin
+      io.portainer.kubernetes.application.stack: tpesso-demo
+      io.portainer.kubernetes.application.stackid: "6"
+    name: redis
+    namespace: demo
+    resourceVersion: "1427793"
+    uid: 59649df0-59cc-4fe6-ac7f-b17dd26d2ac5
+  spec:
+    clusterIP: 195.60.245.179
+    clusterIPs:
+    - 195.60.245.179
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: "6379"
+      port: 6379
+      protocol: TCP
+      targetPort: 6379
+    selector:
+      io.kompose.service: redis
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: /kompose convert -f - --stdout
+      kompose.version: 1.22.0 (955b78124)
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{"kompose.cmd":"/kompose convert -f - --stdout","kompose.version":"1.22.0 (955b78124)"},"creationTimestamp":null,"labels":{"io.kompose.service":"sqladmin","io.portainer.kubernetes.application.kind":"git","io.portainer.kubernetes.application.name":"tpesso-demo","io.portainer.kubernetes.application.owner":"admin","io.portainer.kubernetes.application.stack":"tpesso-demo","io.portainer.kubernetes.application.stackid":"6"},"name":"sqladmin","namespace":"demo"},"spec":{"ports":[{"name":"8088","port":8088,"targetPort":80}],"selector":{"io.kompose.service":"sqladmin"}},"status":{"loadBalancer":{}}}
+    creationTimestamp: "2022-04-12T03:21:56Z"
+    labels:
+      io.kompose.service: sqladmin
+      io.portainer.kubernetes.application.kind: git
+      io.portainer.kubernetes.application.name: tpesso-demo
+      io.portainer.kubernetes.application.owner: admin
+      io.portainer.kubernetes.application.stack: tpesso-demo
+      io.portainer.kubernetes.application.stackid: "6"
+    name: sqladmin
+    namespace: demo
+    resourceVersion: "1427797"
+    uid: 2e902875-2d42-478d-ab93-0f221548ae7c
+  spec:
+    clusterIP: 195.49.150.251
+    clusterIPs:
+    - 195.49.150.251
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: "8088"
+      port: 8088
+      protocol: TCP
+      targetPort: 80
+    selector:
+      io.kompose.service: sqladmin
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
