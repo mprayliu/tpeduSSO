@@ -493,7 +493,7 @@ items:
             value: mysql
           - name: PMA_PORT
             value: "3306"
-        - image: phpmyadmin/phpmyadmin
+          image: phpmyadmin/phpmyadmin
           imagePullPolicy: Always
           name: sqladmin
           ports:
