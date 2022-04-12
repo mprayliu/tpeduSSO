@@ -426,7 +426,7 @@ items:
         securityContext: {}
         terminationGracePeriodSeconds: 30
   status:
-    availableReplicas: 2
+    availableReplicas: 1
     conditions:
     - lastTransitionTime: "2022-04-12T03:23:18Z"
       lastUpdateTime: "2022-04-12T03:23:18Z"
@@ -441,9 +441,9 @@ items:
       status: "True"
       type: Progressing
     observedGeneration: 1
-    readyReplicas: 2
-    replicas: 2
-    updatedReplicas: 2
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
 - apiVersion: apps/v1
   kind: Deployment
   metadata:
