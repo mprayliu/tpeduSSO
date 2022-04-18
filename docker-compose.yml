@@ -45,7 +45,7 @@ services:
     ports:
       - "6379:6379"
     deploy:
-      replicas: 
+      replicas: 1 
     restart: always
     
   laravel:
